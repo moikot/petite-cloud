@@ -1,0 +1,54 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: traefik
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: traefik
+  namespace: gotk-system
+spec:
+  interval: 1h
+  targetNamespace: traefik
+  dependsOn:
+    - name: nfs-client-provisioner
+  chart:
+    spec:
+      chart: traefik
+      version: '9.1.x'
+      sourceRef:
+        kind: HelmRepository
+        name: traefik-helm-repo
+        namespace: gotk-system
+      interval: 1h
+  values:
+    fullnameOverride: traefik
+    logs:
+      general: 
+        level: INFO
+    
+    persistence:
+      enabled: true
+
+    service:
+      spec:
+        loadBalancerIP: 192.168.88.100
+
+    additionalArguments:
+      - --global.sendanonymoususage=false
+      - --entrypoints.web.http.redirections.entrypoint.to=:443
+      - --entrypoints.web.http.redirections.entrypoint.scheme=https
+      - --entrypoints.websecure.http.tls.certresolver=letsencrypt
+      - --entrypoints.websecure.http.tls.domains[0].main=*.cppcli.com
+      - --certificatesresolvers.letsencrypt.acme.storage=/data/acme.json
+      - --certificatesresolvers.letsencrypt.acme.dnschallenge=true
+      - --certificatesresolvers.letsencrypt.acme.dnschallenge.provider=digitalocean
+      - --certificatesresolvers.letsencrypt.acme.email=sanisimov@moikot.com
+
+    env:
+      - name: DO_AUTH_TOKEN
+        valueFrom:
+          secretKeyRef:
+            name: digitalocean
+            key: DO_AUTH_TOKEN

@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: grafana
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: grafana
+  namespace: gotk-system
+spec:
+  interval: 1h
+  targetNamespace: grafana
+  dependsOn:
+    - name: nfs-client-provisioner
+  chart:
+    spec:
+      chart: grafana
+      version: '5.6.x'
+      sourceRef:
+        kind: HelmRepository
+        name: grafana-helm-repo
+        namespace: gotk-system
+      interval: 1h
+  values:
+    replicaCount: 1
+    fullnameOverride: grafana
+    ingress:
+      enabled: true
+      hosts: ["grafana.cppcli.com"]
+    persistence:
+      enabled: true

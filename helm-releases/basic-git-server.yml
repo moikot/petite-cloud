@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: git-server
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: basic-git-server
+  namespace: gotk-system
+spec:
+  interval: 1h
+  targetNamespace: git-server
+  dependsOn:
+    - name: nfs-client-provisioner
+  chart:
+    spec:
+      chart: basic-git-server
+      version: '0.0.x'
+      sourceRef:
+        kind: HelmRepository
+        name: moikot-helm-repo
+        namespace: gotk-system
+      interval: 1h
+  values:
+    fullnameOverride: basic-git-server
+    ingress:
+      host: git.cppcli.com
