@@ -54,6 +54,9 @@ data:
     # Scrape config for node (i.e. kubelet) /metrics (e.g. 'kubelet_'). Explore
     # metrics from a node by scraping kubelet (127.0.0.1:10250/metrics).
     - job_name: 'kubelet'
+
+      scrape_interval: 60s
+
       kubernetes_sd_configs:
       - role: node
 
@@ -117,6 +120,9 @@ data:
 
     # Scrap etcd metrics from masters via etcd-scraper-proxy
     - job_name: 'etcd'
+
+      scrape_interval: 60s
+
       kubernetes_sd_configs:
       - role: pod
       scheme: http
