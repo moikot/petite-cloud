@@ -5,4 +5,4 @@ metadata:
   namespace: gotk-system
 spec:
   interval: 1h
-  url: https://kubernetes-charts.storage.googleapis.com
+  url: https://charts.helm.sh/stable
