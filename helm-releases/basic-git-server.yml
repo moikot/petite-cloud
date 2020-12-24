@@ -7,7 +7,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: basic-git-server
-  namespace: gotk-system
+  namespace: flux-system
 spec:
   interval: 1h
   targetNamespace: git-server
@@ -20,7 +20,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: moikot-helm-repo
-        namespace: gotk-system
+        namespace: flux-system
       interval: 1h
   values:
     fullnameOverride: basic-git-server

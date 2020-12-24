@@ -2,7 +2,7 @@ apiVersion: source.toolkit.fluxcd.io/v1beta1
 kind: GitRepository
 metadata:
   name: internal-repository
-  namespace: gotk-system
+  namespace: flux-system
 spec:
   interval: 1h
   url: http://basic-git-server.git-server.svc/internal-gitops-system

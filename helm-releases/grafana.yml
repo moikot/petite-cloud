@@ -7,7 +7,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: grafana
-  namespace: gotk-system
+  namespace: flux-system
 spec:
   interval: 1h
   targetNamespace: grafana
@@ -20,7 +20,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: grafana-helm-repo
-        namespace: gotk-system
+        namespace: flux-system
       interval: 1h
   values:
     replicaCount: 1
