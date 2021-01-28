@@ -2221,7 +2221,7 @@ spec:
           valueFrom:
             fieldRef:
               fieldPath: metadata.namespace
-        image: ghcr.io/fluxcd/helm-controller-arm64:v0.6.1
+        image: ghcr.io/fluxcd/helm-controller:v0.6.1
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
@@ -2252,7 +2252,6 @@ spec:
         - mountPath: /tmp
           name: temp
       nodeSelector:
-        kubernetes.io/arch: arm64
         kubernetes.io/os: linux
       serviceAccountName: helm-controller
       terminationGracePeriodSeconds: 600
@@ -2294,7 +2293,7 @@ spec:
           valueFrom:
             fieldRef:
               fieldPath: metadata.namespace
-        image: ghcr.io/fluxcd/kustomize-controller-arm64:v0.7.2
+        image: ghcr.io/fluxcd/kustomize-controller:v0.7.2
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
@@ -2325,7 +2324,6 @@ spec:
         - mountPath: /tmp
           name: temp
       nodeSelector:
-        kubernetes.io/arch: arm64
         kubernetes.io/os: linux
       securityContext:
         fsGroup: 1337
@@ -2368,7 +2366,7 @@ spec:
           valueFrom:
             fieldRef:
               fieldPath: metadata.namespace
-        image: ghcr.io/fluxcd/notification-controller-arm64:v0.7.1
+        image: ghcr.io/fluxcd/notification-controller:v0.7.1
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
@@ -2403,7 +2401,6 @@ spec:
         - mountPath: /tmp
           name: temp
       nodeSelector:
-        kubernetes.io/arch: arm64
         kubernetes.io/os: linux
       serviceAccountName: notification-controller
       terminationGracePeriodSeconds: 10
@@ -2447,7 +2444,7 @@ spec:
           valueFrom:
             fieldRef:
               fieldPath: metadata.namespace
-        image: ghcr.io/fluxcd/source-controller-arm64:v0.7.1
+        image: ghcr.io/fluxcd/source-controller:v0.7.1
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
@@ -2479,7 +2476,6 @@ spec:
         - mountPath: /tmp
           name: tmp
       nodeSelector:
-        kubernetes.io/arch: arm64
         kubernetes.io/os: linux
       serviceAccountName: source-controller
       terminationGracePeriodSeconds: 10
