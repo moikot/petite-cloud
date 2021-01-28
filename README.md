@@ -1,7 +1,7 @@
 
 # Petite Cloud 
 
-A [GitOps Toolkit](https://toolkit.fluxcd.io/) setup for installing a set of services on a bare-metal [Kubernetes](https://kubernetes.io/) cluster of [Rock64s](https://www.pine64.org/devices/single-board-computers/rock64/).
+A [Flux v2](https://toolkit.fluxcd.io/) setup for installing a set of services on a bare-metal [Kubernetes](https://kubernetes.io/) cluster of [Rock64s](https://www.pine64.org/devices/single-board-computers/rock64/).
 
 **NOTE:** The following services need to be adjusted if you want to clone this repository and use it for your setup:
 
@@ -16,12 +16,12 @@ A [GitOps Toolkit](https://toolkit.fluxcd.io/) setup for installing a set of ser
 
 You will need a bare-metal Kubernetes cluster accessible via your current `kubectl` context.
 
-Install GitOps Toolkit CLI - `gotk` and set $GITHUB_USER and $GITHUB_TOKEN environment variables following [Get started with GitOps Toolkit](https://toolkit.fluxcd.io/get-started/).
+Install Flux CLI - `flux` and set $GITHUB_USER and $GITHUB_TOKEN environment variables following [Get started with Flux v2](https://toolkit.fluxcd.io/get-started/).
 
 Bootstrap the cluster by connecting to the GitOps repository.
 
 ```shell
-gotk bootstrap github \
+flux bootstrap github \
     --owner=$GITHUB_USER \
     --repository=petite-cloud \
     --branch=master \
@@ -31,8 +31,8 @@ gotk bootstrap github \
 
 ## Components
 
-The setup is powered by [GitOps Toolkit](https://toolkit.fluxcd.io/) and contains the following components:
-* [GitOps Toolkit](https://toolkit.fluxcd.io/) for monitoring your repositories and apply changes to the cluster.
+The setup is powered by [Flux v2](https://toolkit.fluxcd.io/) and contains the following components:
+* [Flux v2](https://toolkit.fluxcd.io/) for monitoring your repositories and apply changes to the cluster.
 * [MetalLB](https://metallb.universe.tf/) so that you can have a layer 2 load balancer.
 * [Traefik](https://doc.traefik.io/traefik/), so that you can access services using your domain and wildcard SSL certificates provided by [Let's Encrypt](https://letsencrypt.org/).
 * [Grafana](https://grafana.com/) for displaying observability dashboards.
