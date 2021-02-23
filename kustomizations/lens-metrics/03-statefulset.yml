@@ -43,8 +43,8 @@ spec:
             - --web.listen-address=0.0.0.0:9090
             - --config.file=/etc/prometheus/prometheus.yaml
             - --storage.tsdb.path=/var/lib/prometheus
-            - --storage.tsdb.retention.time=5d
-            - --storage.tsdb.retention.size=4GB
+            - --storage.tsdb.retention.time=15d
+            - --storage.tsdb.retention.size=8GB
             - --storage.tsdb.min-block-duration=2h
             - --storage.tsdb.max-block-duration=2h
           ports:
