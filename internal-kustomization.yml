@@ -4,7 +4,7 @@ metadata:
   name: internal-kustomization
   namespace: flux-system
 spec:
-  interval: 1h
+  interval: 1d
   path: ./
   prune: true
   sourceRef:

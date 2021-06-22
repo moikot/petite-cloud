@@ -4,5 +4,5 @@ metadata:
   name: traefik-helm-repo
   namespace: flux-system
 spec:
-  interval: 1h
+  interval: 1d
   url: https://containous.github.io/traefik-helm-chart

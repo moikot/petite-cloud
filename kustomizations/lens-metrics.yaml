@@ -4,7 +4,7 @@ metadata:
   name: lens-metrics
   namespace: flux-system
 spec:
-  interval: 1h
+  interval: 1d
   path: ./kustomizations/lens-metrics
   prune: true
   sourceRef:

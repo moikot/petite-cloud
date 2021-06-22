@@ -4,6 +4,6 @@ metadata:
   name: internal-repository
   namespace: flux-system
 spec:
-  interval: 1h
+  interval: 1d
   url: http://basic-git-server.git-server.svc/internal-gitops-system
 
