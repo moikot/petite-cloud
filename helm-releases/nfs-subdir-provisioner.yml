@@ -6,29 +6,26 @@ metadata:
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: nfs-client-provisioner
+  name: nfs-subdir-provisioner
   namespace: flux-system
 spec:
-  interval: 1h
+  interval: 24h
   targetNamespace: storage
   chart:
     spec:
-      chart: nfs-client-provisioner
-      version: '1.3.x'
+      chart: nfs-subdir-external-provisioner
+      version: '4.0.x'
       sourceRef:
         kind: HelmRepository
-        name: moikot-helm-repo
+        name: nfs-sep-helm-repo
         namespace: flux-system
       interval: 1h
   values:
-    fullnameOverride: nfs-client-provisioner
-    image:
-      repository: moikot/nfs-subdir-external-provisioner-arm
-      tag: v1
+    fullnameOverride: nfs-subdir-provisioner
     nfs:
       server: 192.168.88.246
       path: /data/kubernetes
     storageClass:
-      reclaimPolicy: Retain
+      onDelete: retain
+      pathPattern: ${.PVC.namespace}-${.PVC.name}
       defaultClass: true
-      appendVolumeName: false

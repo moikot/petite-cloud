@@ -12,7 +12,7 @@ spec:
   interval: 1h
   targetNamespace: grafana
   dependsOn:
-    - name: nfs-client-provisioner
+    - name: nfs-subdir-provisioner
   chart:
     spec:
       chart: grafana

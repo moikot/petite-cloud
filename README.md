@@ -10,7 +10,7 @@ A [Flux v2](https://toolkit.fluxcd.io/) setup for installing a set of services o
 	* grafana.cppcli.com for Grafana (see [Ingress settings](https://github.com/moikot/fleet-infra/blob/master/helm-releases/grafana.yml)).
 	* prometheus.cppcli.com for Prometheus (see [Ingress resource](https://github.com/moikot/fleet-infra/blob/master/kustomizations/lens-metrics/03-prometheus-ingress.yml)).
 	* git.cppcli.com for the internal basic Git server (see [Ingress settings](https://github.com/moikot/fleet-infra/blob/master/helm-releases/basic-git-server.yml)).
-3. NFS server is available at 192.168.88.246, and the path for the root directory, where NFS sub-directory provisioner is going to create sub-folder, is `/data/kubernetes` ([see NFS provisioner HelmRelease](https://github.com/moikot/fleet-infra/blob/master/helm-releases/nfs-client-provisioner.yml)).
+3. NFS server is available at 192.168.88.246, and the path for the root directory, where NFS sub-directory provisioner is going to create sub-folder, is `/data/kubernetes` ([see NFS provisioner HelmRelease](https://github.com/moikot/fleet-infra/blob/master/helm-releases/nfs-subdir-provisioner.yml)).
 
 ## Installing 
 

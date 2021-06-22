@@ -13,6 +13,6 @@ spec:
   healthChecks:
     - apiVersion: helm.toolkit.fluxcd.io/v2beta1
       kind: HelmRelease
-      name: nfs-client-provisioner
+      name: nfs-subdir-provisioner
       namespace: flux-system
 

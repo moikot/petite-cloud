@@ -12,7 +12,7 @@ spec:
   interval: 1h
   targetNamespace: traefik
   dependsOn:
-    - name: nfs-client-provisioner
+    - name: nfs-subdir-provisioner
   chart:
     spec:
       chart: traefik
