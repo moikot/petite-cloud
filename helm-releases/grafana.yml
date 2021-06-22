@@ -9,7 +9,7 @@ metadata:
   name: grafana
   namespace: flux-system
 spec:
-  interval: 1d
+  interval: 1h
   targetNamespace: grafana
   dependsOn:
     - name: nfs-client-provisioner
@@ -21,7 +21,7 @@ spec:
         kind: HelmRepository
         name: grafana-helm-repo
         namespace: flux-system
-      interval: 1d
+      interval: 1h
   values:
     replicaCount: 1
     fullnameOverride: grafana

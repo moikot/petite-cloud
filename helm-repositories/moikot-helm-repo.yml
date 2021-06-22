@@ -4,5 +4,5 @@ metadata:
   name: moikot-helm-repo
   namespace: flux-system
 spec:
-  interval: 1d
+  interval: 1h
   url: https://moikot.github.io/helm-charts

@@ -9,7 +9,7 @@ metadata:
   name: nfs-client-provisioner
   namespace: flux-system
 spec:
-  interval: 1d
+  interval: 1h
   targetNamespace: storage
   chart:
     spec:
@@ -19,7 +19,7 @@ spec:
         kind: HelmRepository
         name: moikot-helm-repo
         namespace: flux-system
-      interval: 1d
+      interval: 1h
   values:
     fullnameOverride: nfs-client-provisioner
     image:
