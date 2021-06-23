@@ -9,7 +9,7 @@ metadata:
   name: metallb
   namespace: flux-system
 spec:
-  interval: 1h
+  interval: 24h
   targetNamespace: metallb-system
   chart:
     spec:
@@ -19,7 +19,7 @@ spec:
         kind: HelmRepository
         name: bitnami-helm-repo
         namespace: flux-system
-      interval: 1h
+      interval: 24h
   values:
     fullnameOverride: metallb
 

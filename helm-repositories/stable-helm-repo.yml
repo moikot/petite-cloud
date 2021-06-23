@@ -4,5 +4,5 @@ metadata:
   name: stable-helm-repo
   namespace: flux-system
 spec:
-  interval: 1h
+  interval: 24h
   url: https://charts.helm.sh/stable

@@ -9,7 +9,7 @@ metadata:
   name: basic-git-server
   namespace: flux-system
 spec:
-  interval: 1h
+  interval: 24h
   targetNamespace: git-server
   dependsOn:
     - name: nfs-subdir-provisioner
@@ -21,7 +21,7 @@ spec:
         kind: HelmRepository
         name: moikot-helm-repo
         namespace: flux-system
-      interval: 1h
+      interval: 24h
   values:
     fullnameOverride: basic-git-server
     ingress:

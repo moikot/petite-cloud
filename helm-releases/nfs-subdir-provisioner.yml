@@ -19,7 +19,7 @@ spec:
         kind: HelmRepository
         name: nfs-sep-helm-repo
         namespace: flux-system
-      interval: 1h
+      interval: 24h
   values:
     fullnameOverride: nfs-subdir-provisioner
     nfs:
